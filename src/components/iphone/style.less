@@ -1,16 +1,32 @@
 @import '~style/helpers';
 
-.container { 
-	display: flex;
+.container {
+	display: block;
 	flex-direction: column;
-	background-image: url('../../assets/backgrounds/clear-iphone.jpg');
-	color: #fff;
+	background-color: #88d8b0;
+	color: black;
 	width: 414px;
 	height: 736px;
 	text-align: center;
-	padding-top: 80px;
+	padding-top: 0px;
 	margin: 0 auto;
 }
+
+.bike_container {
+	background-image: url("../../assets/images/bike.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	width: 414px;
+	height: 200px;
+	color: black;
+	text-align: left;
+	padding-top: 0px;
+	margin: 0 auto;
+	float:left;
+}
+
 .header {
 	display: flex;
 	flex-direction: column;
@@ -19,10 +35,17 @@
 .details {
 	flex: 4;
 }
+
+.refresh {
+ flex: 5;
+
+}
+
 .city {
 	flex: 1;
+	display: block;
 	font-size: 1.7em;
-	font-weight: 400;	
+	font-weight: 400;
 }
 .conditions {
 	flex: 1;

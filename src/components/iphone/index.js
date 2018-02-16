@@ -17,7 +17,7 @@ export default class Iphone extends Component {
 		// temperature state
 		this.state.temp = "";
 		// button display state
-		this.setState({ display: false });
+		this.setState({ display: true });
 		this.fetchWeatherData() ;
 	}
 
@@ -43,15 +43,27 @@ export default class Iphone extends Component {
 		return (
 			<div class={ style.container }>
 				<div class={ style.header }>
-					<div class={ style.city }>{ this.state.locate }</div>
+					<img src= "../../assets/images/logo.png" />
+					<div class= { style_iphone.container }>
+						<Button class = {style_iphone.button }  /><Button class = {style_iphone.button }  /><Button class = {style_iphone.button }  /><Button class = {style_iphone.button }  />
+					</div>
+					<div class={ style.bike_container }> {/* Container for our GIF */}
+						<div class={ style.city }>{ this.state.locate }</div>
+						<div class={ style.refresh}>Last refreshed</div>
+					</div>
+
+									<div class= { style_iphone.container }></div>
+
 					<div class={ style.conditions }>{ this.state.cond }</div>
 					<span class={ tempStyles }>{ this.state.temp }</span>
-				</div>
+
+
 				<div class={ style.details }></div>
-				<div class= { style_iphone.container }>
+
+
+			</div>
 
 				</div>
-			</div>
 		);
 	}
 
