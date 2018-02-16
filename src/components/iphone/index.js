@@ -42,14 +42,30 @@ export default class Iphone extends Component {
 			// display all weather data
 		return (
 			<div class={ style.container }>
-				<div class={ style.header }>
-					<img src= "../../assets/images/logo.png" />
-					<div class= { style_iphone.container }>
-						<Button class = {style_iphone.button }  /><Button class = {style_iphone.button }  /><Button class = {style_iphone.button }  /><Button class = {style_iphone.button }  />
+				<div class={ style.logo_container }>
+				<img src="../../assets/images/logo.png" height="100"/>
+
 					</div>
+					<div class= { style_iphone.body }>
+		{/*}			<div class= { style_iphone.container }>
+						<Button class = {style_iphone.button }   />
+						<Button class = {style_iphone.button }  />
+						<Button class = {style_iphone.button }  />
+						<Button class = {style_iphone.button }  /> */}
+						<div class= {style_iphone.container}>
+							<button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
+							<button id="today">TODAY</button>
+							<button id="tomorrow">TOMORROW</button>
+							<button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
+						</div>
+		{/*}			</div> */}
 					<div class={ style.bike_container }> {/* Container for our GIF */}
 						<div class={ style.city }>{ this.state.locate }</div>
 						<div class={ style.refresh}>Last refreshed</div>
+						<div class={style.poll_vis}>
+							<p>Pollution</p>
+							<p>Visibility</p>
+						</div>
 					</div>
 
 									<div class= { style_iphone.container }></div>
