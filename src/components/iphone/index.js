@@ -35,6 +35,8 @@ export default class Iphone extends Component {
 		this.setState({ display: false });
 	}
 
+
+
 	// the main render method for the iphone component
 	render() {
 		// check if temperature data is fetched, if so add the sign styling to the page
@@ -60,8 +62,9 @@ export default class Iphone extends Component {
 						</div>
 		{/*}			</div> */}
 					<div class={ style.bike_container }> {/* Container for our GIF */}
+
 						<div class={ style.city }>{ this.state.locate }</div>
-						<div class={ style.refresh}>Last refreshed</div>
+						<div class={ style.refresh}>{this.state.lastupdate}</div>
 						<div class={style.poll_vis}>
 							<p>Pollution</p>
 							<p>Visibility</p>
@@ -75,7 +78,8 @@ export default class Iphone extends Component {
 
 
 				<div class={ style.details }></div>
-
+				<div class= { style.wind }>{this.state.windkph} km/h {this.state.winddir}</div>
+				<div class= { style.precip }>{this.state.precip} </div>
 
 			</div>
 
@@ -87,12 +91,20 @@ export default class Iphone extends Component {
 		var location = parsed_json['current_observation']['display_location']['city'];
 		var temp_c = parsed_json['current_observation']['temp_c'];
 		var conditions = parsed_json['current_observation']['weather'];
+		var wind_kph = parsed_json['current_observation']['wind_kph'];
+		var last_update = parsed_json['current_observation']['observation_time'];
+		var precip = parsed_json['current_observation']['precip_today_metric'];
+		var wind_dir = parsed_json['current_observation']['wind_dir'];
 
 		// set states for fields so they could be rendered later on
 		this.setState({
 			locate: location,
 			temp: temp_c,
-			cond : conditions
+			cond : conditions,
+			windkph : wind_kph,
+			lastupdate: last_update,
+			precip : precip,
+			winddir: wind_dir
 		});
 	}
 }

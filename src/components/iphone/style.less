@@ -28,7 +28,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 414px;
-	height: 200px;
+	height: 250px;
 	color: black;
 	text-align: left;
 	padding-top: 0px;
@@ -39,6 +39,7 @@
 .poll_vis {
 	text-align: right;
 	line-height: 5px;
+	color: #879aba;
 }
 
 .header {
@@ -52,26 +53,69 @@
 
 .refresh {
  flex: 5;
-
+	font-size: 0.80em;
+	color: #879aba;
+	font-weight: 500;
+	font-style: italic;
 }
+
+
 
 .city {
 	flex: 1;
 	display: block;
 	font-size: 1.7em;
-	font-weight: 400;
+	font-weight: 500;
+	font-style: italic;
+	color: #879aba;
+
 }
 .conditions {
 	flex: 1;
-	font-size: 1em;
+	font-size: 3em;
+	float: left;
+	text-align: center;
+	width: 50%;
+	height:50%;
+	color: #fff;
+	padding-top: 15%;
 }
 .temperature {
-	flex: 2;
+	flex: 1;
 	margin-top: 0;
-	font-size: 4.8em;
-	font-weight: 300;
+	font-size: 3em;
+	font-weight: 400;
 	letter-spacing: -12px;
+	float: right;
+	width: 50%;
+	height:50%;
+	text-align: center;
+	padding-top: 15%;
+	color: #fff;
 }
+
+.wind{
+	font-size: 3em;
+	font-weight: 400;
+	float: right;
+	text-align: center;
+	width: 50%;
+	height: 50%;
+	padding-top: 20%;
+	color: #fff;
+}
+
+.precip{
+	flex: 1;
+	font-size: 3em;
+	float: left;
+	text-align: center;
+	width: 50%;
+	height:50%;
+	color: #fff;
+	padding-top: 20%;
+}
+
 .filled:after {
 	content: "°";
 	margin: 0 0 0 1rem;
