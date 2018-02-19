@@ -6,6 +6,10 @@ import style_iphone from '../button/style_iphone';
 // import jquery for API calls
 import $ from 'jquery';
 // import the Button component
+import Icon from '../icon';
+import CloudButton from '../weatherbuttons/cloudbutton';
+import SunButton from '../weatherbuttons/sunbutton';
+import RainButton from '../weatherbuttons/rainbutton';
 import Button from '../button';
 
 export default class Iphone extends Component {
@@ -32,10 +36,9 @@ export default class Iphone extends Component {
 			error : function(req, err){ console.log('API call failed ' + err); }
 		})
 		// once the data grabbed, hide the button
-		this.setState({ display: false });
+		this.setState({ display: true });
 	}
-
-
+    
 
 	// the main render method for the iphone component
 	render() {
@@ -44,53 +47,61 @@ export default class Iphone extends Component {
 			// display all weather data
 		return (
 			<div class={ style.container }>
+            
 				<div class={ style.logo_container }>
-				<img src="../../assets/images/logo.png" height="100"/>
-
-					</div>
-					<div class= { style_iphone.body }>
-		{/*}			<div class= { style_iphone.container }>
-						<Button class = {style_iphone.button }   />
-						<Button class = {style_iphone.button }  />
-						<Button class = {style_iphone.button }  />
-						<Button class = {style_iphone.button }  /> */}
-						<div class= {style_iphone.container}>
-							<button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
-							<button id="today">TODAY</button>
-							<button id="tomorrow">TOMORROW</button>
-							<button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
-						</div>
-		{/*}			</div> */}
-					<div class={ style.bike_container }> {/* Container for our GIF */}
-
-						<div class={ style.city }>{ this.state.locate }</div>
-						<div class={ style.refresh}>{this.state.lastupdate}</div>
-						<div class={style.poll_vis}>
-							<p>Pollution</p>
-							<p>Visibility</p>
-						</div>
-					</div>
-
-									<div class= { style_iphone.container }></div>
-
-					<div class={ style.conditions }>{ this.state.cond }</div>
-					<span class={ tempStyles }>{ this.state.temp }</span>
-
-
-				<div class={ style.details }></div>
-				<div class= { style.wind }>{this.state.windkph} km/h {this.state.winddir}</div>
-				<div class= { style.precip }>{this.state.precip} </div>
-
+				    <img src="../../assets/images/logo.png" height="100"/>
+                </div>
+				
+                <div class= {style_iphone.container}>
+				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
+				    <button id="today">TODAY</button>
+				    <button id="tomorrow">TOMORROW</button>
+				    <button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
+				</div>
+            
+				<div class={ style.bike_container }> {/* Container for our GIF */}
+                    <div class={ style.city }>{ this.state.locate }
+                    </div>
+                    <div class={ style.refresh}>{this.state.lastupdate}
+                    </div>
+                    <div class={style.poll_vis}>
+				        <p>Pollution</p>
+				        <p>Visibility</p>
+				    </div>
+				</div>
+            
+                <div class = { style.weatherinfo }>
+            
+                    <div class= { style.weatheritem}>
+            	       { this.state.cond==='Clear' ? <SunButton class = {style_iphone.button } /> : null }
+                        { this.state.cond==='Rain' ? <RainButton class ={style_iphone.button } /> :  null }
+                        { this.state.cond==='Clouds' ? <CloudButton class = {style_iphone.button } /> : null }
+                    </div>  
+            
+                    <div class={ style.weatheritem }> { this.state.windkph } 
+                        <font size = "6"> kph</font>
+                    </div>
+            
+                    <div class={ style.weatheritem }> { this.state.temp }
+                        &deg;<font size = "4">C</font>
+                    </div>
+            
+				    <div class= { style.weatheritem}>{this.state.precip} 
+                    </div>
+                
+                </div>     
+            
 			</div>
 
-				</div>
+            
 		);
 	}
 
 	parseResponse = (parsed_json) => {
 		var location = parsed_json['current_observation']['display_location']['city'];
 		var temp_c = parsed_json['current_observation']['temp_c'];
-		var conditions = parsed_json['current_observation']['weather'];
+        var conditions = 'Clouds';
+		//var conditions = parsed_json['current_observation']['weather'];
 		var wind_kph = parsed_json['current_observation']['wind_kph'];
 		var last_update = parsed_json['current_observation']['observation_time'];
 		var precip = parsed_json['current_observation']['precip_today_metric'];

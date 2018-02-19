@@ -59,8 +59,6 @@
 	font-style: italic;
 }
 
-
-
 .city {
 	flex: 1;
 	display: block;
@@ -68,52 +66,58 @@
 	font-weight: 500;
 	font-style: italic;
 	color: #879aba;
+}
+
+.weatherinfo {
+	flex: 1;
+	display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 75px;
+    padding-top: 10%;
+    text-align: center;
+    font-size: 3em;
+	font-weight: 400;}
+
+.weatheritem {
+	flex: 1;
+	text-align: center;
+	color: #fff;
 
 }
+
 .conditions {
 	flex: 1;
-	font-size: 3em;
-	float: left;
 	text-align: center;
 	width: 50%;
 	height:50%;
 	color: #fff;
-	padding-top: 15%;
+
 }
+
 .temperature {
 	flex: 1;
-	margin-top: 0;
-	font-size: 3em;
-	font-weight: 400;
-	letter-spacing: -12px;
-	float: right;
+	text-align: center;
 	width: 50%;
 	height:50%;
-	text-align: center;
-	padding-top: 15%;
 	color: #fff;
 }
 
 .wind{
-	font-size: 3em;
-	font-weight: 400;
-	float: right;
+	flex: 1;
 	text-align: center;
 	width: 50%;
-	height: 50%;
-	padding-top: 20%;
+	height:50%;
 	color: #fff;
 }
 
 .precip{
 	flex: 1;
-	font-size: 3em;
-	float: left;
 	text-align: center;
 	width: 50%;
 	height:50%;
 	color: #fff;
-	padding-top: 20%;
 }
 
 .filled:after {
