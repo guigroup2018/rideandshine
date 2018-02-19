@@ -115,7 +115,8 @@ export default class Iphone extends Component {
 												</div>
 				    				</div>
 				</div>
-
+		<div class ={ style.gradient }></div>
+			
                 <div class = { style.weatherinfo }>
                     <div class= { style.weatheritem}>
             	       { this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
