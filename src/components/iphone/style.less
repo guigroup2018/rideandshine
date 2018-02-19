@@ -1,9 +1,9 @@
 @import '~style/helpers';
 
 .container {
-	display: block;
+	display: flex;
 	flex-direction: column;
-	background-color: #88d8b0;
+	background-color: #78d6b6;
 	color: black;
 	width: 414px;
 	height: 736px;
@@ -21,6 +21,7 @@
 
 }
 
+
 .bike_container {
 	background-image: url("../../assets/images/bike.jpg");
 	background-repeat: no-repeat;
@@ -34,12 +35,14 @@
 	padding-top: 0px;
 	margin: 0 auto;
 	float:left;
+	text-transform: uppercase;
 }
 
 .poll_vis {
-	text-align: right;
-	line-height: 5px;
+	text-align: left;
 	color: #879aba;
+	font-weight: 900;
+	margin-left: 67%;
 }
 
 .header {
@@ -69,22 +72,25 @@
 }
 
 .weatherinfo {
-	flex: 1;
+
 	display: inline-grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-column-gap: 50px;
-    grid-row-gap: 75px;
-    padding-top: 10%;
-    text-align: center;
+    grid-row-gap: 50px;
+    padding-top: 15%;
+		text-align: center;
     font-size: 3em;
-	font-weight: 400;}
+		font-weight: 400;
+		align-self: center;
+font-family: 'PT Sans', sans-serif;
+}
 
 .weatheritem {
 	flex: 1;
 	text-align: center;
 	color: #fff;
-
+	align-self: center;
 }
 
 .conditions {
@@ -111,13 +117,6 @@
 	height:50%;
 	color: #fff;
 }
-
-.sunrise {
-	font-weight: 700;
-	font-style: italic;
-
-}
-
 .precip{
 	flex: 1;
 	text-align: center;
@@ -125,6 +124,13 @@
 	height:50%;
 	color: #fff;
 }
+.sunrise {
+	font-weight: 700;
+	font-style: italic;
+
+}
+
+
 
 .filled:after {
 	content: "°";
