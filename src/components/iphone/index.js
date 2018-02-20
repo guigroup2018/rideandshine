@@ -120,13 +120,38 @@ export default class Iphone extends Component {
                 <div class = { style.weatherinfo }>
                     <div class= { style.weatheritem}>
             	       { this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
-										 	this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
-										 	this.state.cond==='Clouds' ? <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" /> : null
+										 	this.state.cond==='clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
+										 	this.state.cond==='rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
+										 	this.state.cond==='cloudy' ? <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" /> :
+											this.state.cond==='snow' ? <img src = "../../assets/icons/snow.png" height = "100" align = "middle" /> :
+ 										 	this.state.cond==='mostlysunny' ? <img src = "../../assets/icons/mostlysunny.png" height = "100" align = "middle" /> :
+ 										 	this.state.cond==='partlysunny' ? <img src = "../../assets/icons/partlysunny.png" height = "100" align = "middle" /> :
+											this.state.cond==='hazy' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" /> :
+ 										 	this.state.cond==='partlycloudy' ? <img src = "../../assets/icons/partlycloudy.png" height = "100" align = "middle" /> :
+ 										 	this.state.cond==='mostlycloudy' ? <img src = "../../assets/icons/mostlycloudy.png" height = "100" align = "middle" /> :
+											this.state.cond==='tstorms' ? <img src = "../../assets/icons/tstorms.png" height = "100" align = "middle" /> :
+											this.state.cond==='sleet' ? <img src = "../../assets/icons/sleet.png" height = "100" align = "middle" /> :
+											this.state.cond==='flurries' ? <img src = "../../assets/icons/flurries.png" height = "100" align = "middle" /> :
+											this.state.cond==='fog' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" />
+											: null
 											}
                     </div>
 
                     <div class={ style.weatheritem }> { this.state.windkph }
                         <font size = "6"> kph</font>
+			{/*}
+                      
+												{ this.state.winddir==='N'  ? <img src = "../../assets/wind/N.png" height = "45"/> :
+													this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/wind/NW.png" height = "45"/> :
+													this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/wind/NE.png" height = "45"/> :
+													this.state.winddir==='E'  ? <img src = "../../assets/wind/E.png" height = "45"/> :
+													this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/wind/SE.png" height = "45"/> :
+													this.state.winddir==='S'  ? <img src = "../../assets/wind/S.png" height = "45"/> :
+													this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/wind/SW.png" height = "45"/>
+													: null
+												}
+*/}
+
                     </div>
 
                     <div class={ style.weatheritem }> { this.state.temp }
