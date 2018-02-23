@@ -9,7 +9,7 @@ import $ from 'jquery';
 import Button from '../button';
 import { Link } from 'preact-router/match';
 
-export default class Iphone extends Component {
+export default class Tomorrow extends Component {
 //var Iphone = React.createClass({
 
 	// a constructor with initial set states
@@ -91,8 +91,8 @@ export default class Iphone extends Component {
 
         <div class= { style_iphone.container }>
 				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
-				    <button id="today"><u>TODAY</u></button>
-				    <Link href="/tomorrow"><button id="tomorrow">TOMORROW</button></Link>
+				    <Link href="/"><button id="today">TODAY</button></Link>
+				    <Link href="/tomorrow"><button id="tomorrow"><u>TOMORROW</u></button></Link>
 				    <div class = { style_iphone.commute }><button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
 							</div>
 				</div>
