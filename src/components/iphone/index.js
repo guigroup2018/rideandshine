@@ -93,7 +93,7 @@ export default class Iphone extends Component {
 				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
 				    <button id="today"><u>TODAY</u></button>
 				    <Link href="/tomorrow"><button id="tomorrow">TOMORROW</button></Link>
-				    <div class = { style_iphone.commute }><button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
+				    <div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
 							</div>
 				</div>
 
