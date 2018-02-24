@@ -30,7 +30,7 @@ export default class Commute extends Component {
   fetchWeatherDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-    var url = "http://api.wunderground.com/api/7958870baaf0dfee/conditions/q/autoip.json";
+    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/conditions/q/autoip.json";
 
     $.ajax({
       url: url,
@@ -45,7 +45,7 @@ export default class Commute extends Component {
 
   fetchForecastDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-    var url = "http://api.wunderground.com/api/7958870baaf0dfee/forecast/q/autoip.json";
+    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/forecast/q/autoip.json";
     $.ajax({
       url: url,
       dataType: "jsonp",
@@ -59,7 +59,7 @@ export default class Commute extends Component {
   fetchWeatherDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-    var url = "http://api.wunderground.com/api/7958870baaf0dfee/conditions/q/Hungary/Budapest.json";
+    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/conditions/q/Hungary/Budapest.json";
 
     $.ajax({
       url: url,
@@ -74,7 +74,7 @@ export default class Commute extends Component {
 
   fetchForecastDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-    var url = "http://api.wunderground.com/api/7958870baaf0dfee/forecast/q/Hungary/Budapest.json";
+    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/forecast/q/Hungary/Budapest.json";
     $.ajax({
       url: url,
       dataType: "jsonp",
