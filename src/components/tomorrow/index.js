@@ -93,7 +93,7 @@ export default class Tomorrow extends Component {
 				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
 				    <Link href="/"><button id="today">TODAY</button></Link>
 				    <Link href="/tomorrow"><button id="tomorrow"><u>TOMORROW</u></button></Link>
-				    <div class = { style_iphone.commute }><button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
+				    <div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
 							</div>
 				</div>
 
