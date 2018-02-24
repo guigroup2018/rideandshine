@@ -5,6 +5,7 @@ import { h, Component } from 'preact';
 import Iphone from './iphone';
 import Ipad from './ipad';
 import Tomorrow from './tomorrow';
+import Commute from './commute';
 import { Router } from 'preact-router';
 
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
 				<Router onChange={this.handleRoute}>
 					<Iphone path = '/' />
 					<Tomorrow path = '/tomorrow/' />
+					<Commute path = '/commute'/>
 					</Router>
 				</div>
 			);
