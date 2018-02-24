@@ -21,9 +21,9 @@ export default class Commute extends Component {
     this.setState({ display: true });
     this.getTimes();
     this.fetchWeatherDataOne();
-    this.fetchHourlyDataOne();
+    this.fetchForecastDataOne();
     this.fetchWeatherDataTwo();
-    this.fetchHourlyDataTwo();
+    this.fetchForecastDataTwo();
   }
 
   // a call to fetch weather data via wunderground
@@ -43,7 +43,7 @@ export default class Commute extends Component {
 
 
 
-  fetchHourlyDataOne = () => {
+  fetchForecastDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
     var url = "http://api.wunderground.com/api/7958870baaf0dfee/forecast/q/autoip.json";
     $.ajax({
@@ -72,7 +72,7 @@ export default class Commute extends Component {
 
 
 
-  fetchHourlyDataTwo = () => {
+  fetchForecastDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
     var url = "http://api.wunderground.com/api/7958870baaf0dfee/forecast/q/Hungary/Budapest.json";
     $.ajax({
