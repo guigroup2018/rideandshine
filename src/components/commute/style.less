@@ -1,0 +1,147 @@
+@import '~style/helpers';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	background-color: #78d6b6;
+	color: black;
+	width: 414px;
+	height: 736px;
+	text-align: center;
+	padding-top: 0px;
+	margin: 0 auto;
+}
+
+.body {
+
+}
+
+.header {
+	padding-top: 20px;
+	padding-bottom: 10%;
+	height: 100px;
+	font-size: 2.5em;
+	color: white;
+	position: relative;
+}
+
+.header div{
+	position: absolute;
+}
+
+.title {
+	left: 0px;
+	right: 0px;
+}
+
+
+
+.info_container {
+	display: flex;
+	flex-direction: column;
+	width: 414px;
+	height: 250px;
+	color: black;
+	text-align: left;
+	padding-bottom: 40%;
+	margin: 0 auto;
+	float:left;
+	text-transform: uppercase;
+}
+
+.poll_vis {
+	text-align: left;
+	color: #879aba;
+	font-weight: 900;
+	margin-left: 67%;
+}
+
+.details {
+	flex: 4;
+}
+
+.saved_time {
+ flex: 5;
+	font-size: 1.5em;
+	color: white;
+	font-weight: 500;
+	margin-left: 10%;
+}
+
+.city {
+	flex: 1;
+	display: block;
+	font-style: italic;
+	font-size: 2em;
+	font-weight: 500;
+	color: white;
+	margin-left: 10%;
+}
+
+.weatherinfo {
+
+	display: grid;
+  grid-template-areas:
+	'weathericon temperature'
+	'weathericon precip'
+	'weathericon wind';
+  grid-gap: 10px;
+	text-align: center;
+  font-size: 3em;
+	font-weight: 400;
+	align-self: center;
+	font-family: 'PT Sans', sans-serif;
+	color: white;
+
+}
+
+.weathericon {
+	grid-area: weathericon;
+	align-self:center;
+	padding-right: 10%;
+}
+
+.temperature {
+	grid-area: temperature;
+	align-self: center;
+}
+
+.wind{
+	grid-area: wind;
+	align-self: center;
+}
+.precip{
+	grid-area: precip;
+	align-self: center;
+}
+
+.weatheritem {
+	color: #fff;
+}
+
+.conditions {
+	flex: 1;
+	text-align: center;
+	width: 50%;
+	height:50%;
+	color: #fff;
+
+}
+
+.sunrise {
+	font-weight: 700;
+	font-style: italic;
+}
+
+
+.back button {
+	padding: 15px 15px;
+  background: transparent;
+  border: 0px;
+}
+
+.back button:hover {
+  background: #fff;
+  color: #6DA4CC;
+  border: 0px solid transparent;
+}
