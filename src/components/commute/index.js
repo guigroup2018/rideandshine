@@ -99,18 +99,6 @@ export default class Commute extends Component {
             COMMUTE
         </div>
 
-  {/*      <div class= { style_iphone.container }>
-            <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
-            <Link href="/"><button id="today">TODAY</button></Link>
-            <Link href="/tomorrow"><button id="tomorrow"><u>TOMORROW</u></button></Link>
-            <div class = { style_iphone.commute }><button id="settings"><img src = "../../assets/images/commute.png" height = "22"/></button>
-              </div>
-        </div>
-*/}
-
-
-
-
         <div class={ style.info_container }>
                     <div class={ style.city }>{ this.state.locate }
                     </div>
