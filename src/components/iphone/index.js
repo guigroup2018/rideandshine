@@ -21,7 +21,7 @@ export default class Iphone extends Component {
 		this.setState({ display: true });
 		this.fetchWeatherData() ;
 		this.fetchAstronomyData();
-		this.fetchHourlyData();
+		this.fetchDailyData();
 		this.fetchPollution();
 
 	}
@@ -53,7 +53,7 @@ export default class Iphone extends Component {
 
 	}
 
-	fetchHourlyData = () => {
+	fetchDailyData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/forecast/q/autoip.json";
 		$.ajax({
@@ -79,22 +79,20 @@ export default class Iphone extends Component {
 
 	// the main render method for the iphone component
 	render() {
-		// check if temperature data is fetched, if so add the sign styling to the page
-		//const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-			// display all weather data
+        // display all weather data
 		return (
 			<div class={ style.container }>
 
 				<div class={ style.logo_container }>
 				    <img src="../../assets/images/logo.png" height="100"/>
-        </div>
+                </div>
 
-        <div class= { style_iphone.container }>
+                <div class= { style_iphone.container }>
 				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
 				    <button id="today"><u>TODAY</u></button>
 				    <Link href="/tomorrow"><button id="tomorrow">TOMORROW</button></Link>
 				    <div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
-							</div>
+				    </div>
 				</div>
 
 				<div class={ style.bike_container }> {/* Container for our GIF */}
@@ -103,52 +101,54 @@ export default class Iphone extends Component {
                     <div class={ style.refresh}>{this.state.lastupdate}
                     </div>
                     <div class={style.poll_vis}>
-				        			  						{ this.state.pollution <= 50 ? <font color = 'green' size = "5">&#9670;</font> :
-																		this.state.pollution <= 100 ? <font color = 'yellow' size = "5">&#9670;</font> :
-																		this.state.pollution <= 150 ? <font color = 'orange' size = "5">&#9670;</font>:
-																		this.state.pollution > 150 ? <font color = 'red' size = "5">&#9670;</font>
-																		: null
-																	} POLLUTION
-				      					<div><img src = "../../assets/icons/sunrise.png" height = "22" width = "25"/>{this.state.sunrise}:{this.state.sunrisemin} | {this.state.sunset}:{this.state.sunsetmin}
-												</div>
-				    				</div>
+				        {   this.state.pollution <= 50 ? <font color = 'green' size = "5">&#9670;</font> :
+				            this.state.pollution <= 100 ? <font color = 'yellow' size = "5">&#9670;</font> :
+							this.state.pollution <= 150 ? <font color = 'orange' size = "5">&#9670;</font>:
+							this.state.pollution > 150 ? <font color = 'red' size = "5">&#9670;</font>
+							: null
+						} POLLUTION
+				            <div><img src = "../../assets/icons/sunrise.png" height = "22" width = "25"/>{this.state.sunrise}:{this.state.sunrisemin} | {this.state.sunset}:{this.state.sunsetmin}
+				            </div>
+				    </div>
 				</div>
-		<div class ={ style.gradient }></div>
+            
+                <div class ={ style.gradient }>
+                </div>
 
                 <div class = { style.weatherinfo }>
-                    <div class= { style.weatheritem}>
+                    <div class= { style.weatheritem}><font size="4">
             	       {
-										 	this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
-										 	this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
-										 	this.state.cond==='Cloudy' ? <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" /> :
-											this.state.cond==='Snow' ? <img src = "../../assets/icons/snow.png" height = "100" align = "middle" /> :
- 										 	this.state.cond==='Mostly Sunny' ? <img src = "../../assets/icons/mostlysunny.png" height = "100" align = "middle" /> :
- 										 	this.state.cond==='Partly Sunny' ? <img src = "../../assets/icons/partlysunny.png" height = "100" align = "middle" /> :
-											this.state.cond==='Hazy' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" /> :
- 										 	this.state.cond==='Partly Cloudy' ? <img src = "../../assets/icons/partlycloudy.png" height = "100" align = "middle" /> :
- 										 	this.state.cond==='Mostly Cloudy' ? <img src = "../../assets/icons/mostlycloudy.png" height = "100" align = "middle" /> :
-											this.state.cond==='Thunderstorm' ? <img src = "../../assets/icons/tstorms.png" height = "100" align = "middle" /> :
-											this.state.cond==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "100" align = "middle" /> :
-											this.state.cond==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "100" align = "middle" /> :
-											this.state.cond==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" />
-											: 'No API info'
-											}
+				        this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
+						this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
+						this.state.cond==='Cloudy' ? <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" /> :
+						this.state.cond==='Snow' ? <img src = "../../assets/icons/snow.png" height = "100" align = "middle" /> :
+ 						this.state.cond==='Mostly Sunny' ? <img src = "../../assets/icons/mostlysunny.png" height = "100" align = "middle" /> :
+ 						this.state.cond==='Partly Sunny' ? <img src = "../../assets/icons/partlysunny.png" height = "100" align = "middle" /> :
+						this.state.cond==='Hazy' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" /> :
+ 						this.state.cond==='Partly Cloudy' ? <img src = "../../assets/icons/partlycloudy.png" height = "100" align = "middle" /> :
+ 						this.state.cond==='Mostly Cloudy' ? <img src = "../../assets/icons/mostlycloudy.png" height = "100" align = "middle" /> :
+						this.state.cond==='Thunderstorm' ? <img src = "../../assets/icons/tstorms.png" height = "100" align = "middle" /> :
+						this.state.cond==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "100" align = "middle" /> :
+						this.state.cond==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "100" align = "middle" /> :
+						this.state.cond==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" />
+						: 'No API info'
+						}</font>
                     </div>
 
                     <div class={ style.weatheritem }> { this.state.windkph }
                         <font size = "6"> kph</font>
-			{/*}
+			             {/*}
 
-												{ this.state.winddir==='N'  ? <img src = "../../assets/wind/N.png" height = "45"/> :
-													this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/wind/NW.png" height = "45"/> :
-													this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/wind/NE.png" height = "45"/> :
-													this.state.winddir==='E'  ? <img src = "../../assets/wind/E.png" height = "45"/> :
-													this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/wind/SE.png" height = "45"/> :
-													this.state.winddir==='S'  ? <img src = "../../assets/wind/S.png" height = "45"/> :
-													this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/wind/SW.png" height = "45"/>
-													: null
-												}
-*/}
+							{ this.state.winddir==='N'  ? <img src = "../../assets/wind/N.png" height = "45"/> :
+							this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/wind/NW.png" height = "45"/> :
+							this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/wind/NE.png" height = "45"/> :
+							this.state.winddir==='E'  ? <img src = "../../assets/wind/E.png" height = "45"/> :
+							this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/wind/SE.png" height = "45"/> :
+							this.state.winddir==='S'  ? <img src = "../../assets/wind/S.png" height = "45"/> :
+							this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/wind/SW.png" height = "45"/>
+							: null
+							}
+                         */}
 
                     </div>
 
@@ -156,13 +156,12 @@ export default class Iphone extends Component {
                         &deg;<font size = "4"><b>C</b></font>
                     </div>
 
-				    				<div class= { style.weatheritem}>{ this.state.poperc }<img src = "../../assets/icons/chancerain.png" height = "60" align = "top"/>
+				    <div class= { style.weatheritem}>{ this.state.poperc }<img src = "../../assets/icons/chancerain.png" height = "60" align = "top"/>
                     </div>
 
                 </div>
 
 			</div>
-
 
 		);
 	}
@@ -221,8 +220,6 @@ export default class Iphone extends Component {
 
 	parseResponseFour = (parsed_json) => {
 			var pollution = parsed_json['data']['current']['pollution']['aqius'];
-
-
 
 			this.setState({
 					pollution: pollution
