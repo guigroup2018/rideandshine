@@ -76,23 +76,56 @@ export default class Iphone extends Component {
 		})
 
 	}
+	
+	openNav = () =>  {
+	    document.getElementById("mySidenav").style.width = "250px";
+	}
+
+	/* Set the width of the side navigation to 0 */
+closeNav = () => {
+	    document.getElementById("mySidenav").style.width = "0";
+	}
 
 	// the main render method for the iphone component
 	render() {
         // display all weather data
 		return (
+
 			<div class={ style.container }>
+			<div class= { style_iphone.container} >
+			<div  id ="mySidenav" class= { style.sidenav }>
+
+			 <button className="settings" onclick= {this.closeNav} ><img src = "../../assets/images/settings.png" height = "22"/></button>
+
+			 <div class ={style.sideBtns} onclick= {this.closeNav}>
+
+			 <p>Settings</p>
+			 </div>
+			 </div>
+			</div>
 
 				<div class={ style.logo_container }>
 				    <img src="../../assets/images/logo.png" height="100"/>
                 </div>
+            <div class= { style_iphone.container} >
 
-                <div class= { style_iphone.container }>
-				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
-				    <button id="today"><u>TODAY</u></button>
+{/*
+						<div class = { style.dropdown} >
+						<select>
+						  <option value="grapefruit">Grapefruit</option>
+						  <option value="lime">Lime</option>
+						  <option selected value="coconut">Coconut</option>
+						  <option value="mango">Mango</option>
+						</select>
+						</div>
+*/}
+
+					<button className="settings" onclick= {this.openNav} ><img src = "../../assets/images/settings.png" height = "22"/></button>
+					 <button id="today"><u>TODAY</u></button>
 				    <Link href="/tomorrow"><button id="tomorrow">TOMORROW</button></Link>
 				    <div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
-				    </div>
+
+			</div>
 				</div>
 
 				<div class={ style.bike_container }> {/* Container for our GIF */}
