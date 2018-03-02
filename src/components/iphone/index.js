@@ -20,8 +20,8 @@ export default class Iphone extends Component {
 		// button display state
 		this.setState({ display: true });
 		this.fetchWeatherData() ;
-		this.fetchAstronomyData();
-		this.fetchDailyData();
+	//	this.fetchAstronomyData();
+	//	this.fetchDailyData();
 		this.fetchPollution();
 
 	}
@@ -30,7 +30,7 @@ export default class Iphone extends Component {
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-		var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/conditions/q/autoip.json";
+		var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/conditions/astronomy/forecast/q/autoip.json";
 
 		$.ajax({
 			url: url,
@@ -40,7 +40,7 @@ export default class Iphone extends Component {
 		})
 
 	}
-
+/*
 	fetchAstronomyData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/astronomy/q/autoip.json";
@@ -64,7 +64,7 @@ export default class Iphone extends Component {
 		})
 
 	}
-
+*/
 	fetchPollution = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		var url = "http://api.airvisual.com/v2/nearest_city?key=rTa9J2P3FXqYAmWNP";
@@ -111,12 +111,12 @@ export default class Iphone extends Component {
 				            </div>
 				    </div>
 				</div>
-            
+
                 <div class ={ style.gradient }>
                 </div>
 
                 <div class = { style.weatherinfo }>
-                    <div class= { style.weatheritem}><font size="4">
+                    <div class= { style.weatheritem}>
             	       {
 				        this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
 						this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
@@ -131,8 +131,8 @@ export default class Iphone extends Component {
 						this.state.cond==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "100" align = "middle" /> :
 						this.state.cond==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "100" align = "middle" /> :
 						this.state.cond==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" />
-						: 'No API info'
-						}</font>
+						: <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" />
+						}
                     </div>
 
                     <div class={ style.weatheritem }> { this.state.windkph }
@@ -162,7 +162,7 @@ export default class Iphone extends Component {
                 </div>
 
 			<div class = { style_iphone.arrow }><Link href = "/hourly"><button id = "arrow"><img src = "../../assets/icons/arrowhead.png" height = '18'/></button></Link></div>
-			
+
 			</div>
 
 		);
@@ -176,7 +176,11 @@ export default class Iphone extends Component {
 		var last_update = parsed_json['current_observation']['observation_time'];
 		var precip = parsed_json['current_observation']['precip_today_metric'];
 		var wind_dir = parsed_json['current_observation']['wind_dir'];
-
+		var sunset = parsed_json['sun_phase']['sunset']['hour'];
+		var sunsetmin = parsed_json['sun_phase']['sunset']['minute'];
+		var sunrise = parsed_json['sun_phase']['sunrise']['hour'];
+		var sunrisemin = parsed_json['sun_phase']['sunrise']['minute'];
+		var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
 		// set states for fields so they could be rendered later on
 		this.setState({
@@ -187,13 +191,18 @@ export default class Iphone extends Component {
 			windkph : wind_kph,
 			lastupdate: last_update,
 			precip : precip,
-			winddir: wind_dir
+			winddir: wind_dir,
+			sunset: sunset,
+			sunsetmin: sunsetmin,
+			sunrise: sunrise,
+			sunrisemin: sunrisemin,
+			poperc: poperc
 
 
 		});
 	}
 
-
+/*
 	parseResponseTwo = (parsed_json) => {
 			var sunset = parsed_json['sun_phase']['sunset']['hour'];
 			var sunsetmin = parsed_json['sun_phase']['sunset']['minute'];
@@ -219,7 +228,7 @@ export default class Iphone extends Component {
 		});
 
 	}
-
+*/
 	parseResponseFour = (parsed_json) => {
 			var pollution = parsed_json['data']['current']['pollution']['aqius'];
 

@@ -21,16 +21,16 @@ export default class Commute extends Component {
     this.setState({ display: true });
     this.getTimes();
     this.fetchWeatherDataOne();
-    this.fetchForecastDataOne();
+  //  this.fetchForecastDataOne();
     this.fetchWeatherDataTwo();
-    this.fetchForecastDataTwo();
+//    this.fetchForecastDataTwo();
   }
 
   // a call to fetch weather data via wunderground
   fetchWeatherDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/conditions/q/autoip.json";
+    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/conditions/forecast/q/autoip.json";
 
     $.ajax({
       url: url,
@@ -41,7 +41,7 @@ export default class Commute extends Component {
 
   }
 
-
+/*
 
   fetchForecastDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
@@ -54,7 +54,7 @@ export default class Commute extends Component {
     })
 
   }
-
+*/
 
   fetchWeatherDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
@@ -71,7 +71,7 @@ export default class Commute extends Component {
   }
 
 
-
+/*
   fetchForecastDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
     var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/forecast/q/Hungary/Budapest.json";
@@ -83,6 +83,7 @@ export default class Commute extends Component {
     })
 
   }
+  */
 
   // the main render method for the iphone component
   render() {
@@ -125,7 +126,7 @@ export default class Commute extends Component {
                       this.state.cond==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "160" align = "middle" /> :
                       this.state.cond==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "160" align = "middle" /> :
                       this.state.cond==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" />
-                      : 'No API info'
+                      : <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" />
                       }
                     </div>
 
@@ -188,7 +189,7 @@ export default class Commute extends Component {
                       this.state.cond_two==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "160" align = "middle" /> :
                       this.state.cond_two==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "160" align = "middle" /> :
                       this.state.cond_two==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" />
-                      : 'No API info'
+                      : <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" />
                       }
                     </div>
 
@@ -239,6 +240,7 @@ export default class Commute extends Component {
     var wind_kph = parsed_json['current_observation']['wind_kph'];
     var last_update = parsed_json['current_observation']['observation_time'];
     var wind_dir = parsed_json['current_observation']['wind_dir'];
+    var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
 
     // set states for fields so they could be rendered later on
@@ -249,14 +251,15 @@ export default class Commute extends Component {
     //	cond: 'clear',
       windkph : wind_kph,
       lastupdate: last_update,
-      winddir: wind_dir
+      winddir: wind_dir,
+      poperc: poperc
 
 
     });
   }
 
 
-
+/*
   parseResponseForecastOne = (parsed_json) => {
       var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
@@ -265,13 +268,14 @@ export default class Commute extends Component {
     });
 
   }
-
+*/
   parseResponseWeatherTwo = (parsed_json) => {
     var location = parsed_json['current_observation']['display_location']['city'];
     var temp_c = parsed_json['current_observation']['temp_c'];
     var conditions = parsed_json['current_observation']['weather'];
     var wind_kph = parsed_json['current_observation']['wind_kph'];
     var wind_dir = parsed_json['current_observation']['wind_dir'];
+    var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
 
     // set states for fields so they could be rendered later on
@@ -281,14 +285,15 @@ export default class Commute extends Component {
       cond_two : conditions,
     //	cond: 'clear',
       windkph_two : wind_kph,
-      winddir_two: wind_dir
+      winddir_two: wind_dir,
+      poperc_two: poperc
 
 
     });
   }
 
 
-
+/*
   parseResponseForecastTwo = (parsed_json) => {
       var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
@@ -297,7 +302,7 @@ export default class Commute extends Component {
     });
 
   }
-
+*/
   getTimes = () => {
       var time_one = '9:00AM';
       var time_two = '6:00PM';

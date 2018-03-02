@@ -16,7 +16,7 @@ export default class Tomorrow extends Component {
 	constructor(props){
 		super(props);
 		this.fetchWeatherData() ;
-		this.fetchLocationData();
+		//this.fetchLocationData();
 
 	}
 
@@ -24,7 +24,7 @@ export default class Tomorrow extends Component {
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-		var url = "http://api.wunderground.com/api/84d1dff8599a94b2/forecast/q/autoip.json";
+		var url = "http://api.wunderground.com/api/84d1dff8599a94b2/forecast/conditions/q/autoip.json";
         		$.ajax({
 			url: url,
 			dataType: "jsonp",
@@ -33,7 +33,7 @@ export default class Tomorrow extends Component {
 		})
 
 	}
-
+/*
 	fetchLocationData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 		var url = "http://api.wunderground.com/api/84d1dff8599a94b2/conditions/q/autoip.json";
@@ -45,7 +45,7 @@ export default class Tomorrow extends Component {
 		})
 
 	}
-
+*/
 
 	render() {
 
@@ -59,7 +59,7 @@ export default class Tomorrow extends Component {
             <div class= { style_iphone.container }>
 				<button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
 				<Link href="/"><button id="today">TODAY</button></Link>
-            
+
 				<Link href="/tomorrow"><button id="tomorrow"><span style="background-color:#ffcd60;"><font color='#6dae9d'><u>TOMORROW</u></font></span></button></Link>
 				<div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
 				</div>
@@ -71,13 +71,13 @@ export default class Tomorrow extends Component {
                 <div class={ style.refresh}>{this.state.tomorrowday}
                 </div>
             </div>
-		
+
             <div class ={ style.gradient }>
             </div>
 
             <div class = { style.weatherinfo }>
                 <div class= { style.weatheritem}>
-                <font size="4">
+              
             	   {
 					this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
 					this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
@@ -92,8 +92,8 @@ export default class Tomorrow extends Component {
 					this.state.cond==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "100" align = "middle" /> :
 					this.state.cond==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "100" align = "middle" /> :
 					this.state.cond==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "100" align = "middle" />
-					: 'No API info'
-				    }</font>
+					: <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" />
+				    }
                 </div>
 
                 <div class={ style.weatheritem }> { this.state.windspeed }
@@ -141,7 +141,7 @@ export default class Tomorrow extends Component {
         var temp_c_min = parsed_json['forecast']['simpleforecast']['forecastday'][1]['low']['celsius'];
         var rainprob = parsed_json['forecast']['txt_forecast']['forecastday'][1]['pop'];
 	    var day = parsed_json['forecast']['simpleforecast']['forecastday'][1]['date']['weekday'];
-		
+			var location = parsed_json['current_observation']['display_location']['city'];
 
 		// set states for fields so they could be rendered later on
 		this.setState({
@@ -151,12 +151,13 @@ export default class Tomorrow extends Component {
             tempmax : temp_c_max,
             tempmin : temp_c_min,
             rainprob : rainprob,
-            tomorrowday : day
+            tomorrowday : day,
+						location: location
 
 		});
 	}
 
-
+/*
 	parseResponseThree = (parsed_json) => {
 			var location = parsed_json['current_observation']['display_location']['city'];
 
@@ -164,7 +165,6 @@ export default class Tomorrow extends Component {
 				location: location
 		});
 	}
-
+*/
 
 }
-
