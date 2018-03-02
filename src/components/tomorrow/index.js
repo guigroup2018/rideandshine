@@ -24,7 +24,7 @@ export default class Tomorrow extends Component {
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-		var url = "http://api.wunderground.com/api/84d1dff8599a94b2/forecast/conditions/q/autoip.json";
+		var url = "http://api.wunderground.com/api/a0f5a50344818e43/conditions/forecast/q/autoip.json";
         		$.ajax({
 			url: url,
 			dataType: "jsonp",
@@ -77,7 +77,7 @@ export default class Tomorrow extends Component {
 
             <div class = { style.weatherinfo }>
                 <div class= { style.weatheritem}>
-              
+
             	   {
 					this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
 					this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :

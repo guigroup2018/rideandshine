@@ -23,7 +23,7 @@ export default class Hourly extends Component {
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-		var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/hourly/q/autoip.json";
+		var url = "http://api.wunderground.com/api/a0f5a50344818e43/hourly/q/autoip.json";
 
 		$.ajax({
 			url: url,
@@ -362,14 +362,14 @@ export default class Hourly extends Component {
 	}
 
 	parseResponseHourly = (parsed_json) => {
-		var hour1 = parsed_json['hourly_forecast'][0]['FCTTIME']['hour'];
-		var hour2 = parsed_json['hourly_forecast'][1]['FCTTIME']['hour'];
-		var hour3 = parsed_json['hourly_forecast'][2]['FCTTIME']['hour'];
-		var hour4 = parsed_json['hourly_forecast'][3]['FCTTIME']['hour'];
-		var hour5 = parsed_json['hourly_forecast'][4]['FCTTIME']['hour'];
-		var hour6 = parsed_json['hourly_forecast'][5]['FCTTIME']['hour'];
-		var hour7 = parsed_json['hourly_forecast'][6]['FCTTIME']['hour'];
-		var hour8 = parsed_json['hourly_forecast'][7]['FCTTIME']['hour'];
+		var hour1 = parsed_json['hourly_forecast'][0]['FCTTIME']['hour_padded'];
+		var hour2 = parsed_json['hourly_forecast'][1]['FCTTIME']['hour_padded'];
+		var hour3 = parsed_json['hourly_forecast'][2]['FCTTIME']['hour_padded'];
+		var hour4 = parsed_json['hourly_forecast'][3]['FCTTIME']['hour_padded'];
+		var hour5 = parsed_json['hourly_forecast'][4]['FCTTIME']['hour_padded'];
+		var hour6 = parsed_json['hourly_forecast'][5]['FCTTIME']['hour_padded'];
+		var hour7 = parsed_json['hourly_forecast'][6]['FCTTIME']['hour_padded'];
+		var hour8 = parsed_json['hourly_forecast'][7]['FCTTIME']['hour_padded'];
 		var temp1 = parsed_json['hourly_forecast'][0]['temp']['metric'];
 		var temp2 = parsed_json['hourly_forecast'][1]['temp']['metric'];
 		var temp3 = parsed_json['hourly_forecast'][2]['temp']['metric'];
