@@ -161,6 +161,8 @@ export default class Iphone extends Component {
 
                 </div>
 
+			<div class = { style_iphone.arrow }><Link href = "/hourly"><button id = "arrow"><img src = "../../assets/icons/arrowhead.png" height = '18'/></button></Link></div>
+			
 			</div>
 
 		);
