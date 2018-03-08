@@ -30,7 +30,7 @@ export default class Commute extends Component {
   fetchWeatherDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-    var url = "http://api.wunderground.com/api/a0f5a50344818e43/conditions/forecast/q/autoip.json";
+    var url = "http://api.wunderground.com/api/a0f5a50344818e43/conditions/forecast/q/51.537978,-0.106155.json";
 
     $.ajax({
       url: url,
@@ -59,7 +59,7 @@ export default class Commute extends Component {
   fetchWeatherDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
-    var url = "http://api.wunderground.com/api/a0f5a50344818e43/conditions/forecast/q/Hungary/Budapest.json";
+    var url = "http://api.wunderground.com/api/a0f5a50344818e43/conditions/forecast/q/51.524340,-0.040298.json";
 
     $.ajax({
       url: url,
@@ -140,19 +140,19 @@ export default class Commute extends Component {
                     </div>
 
                     <div class = { style.wind }> { this.state.windkph }
-                        <font size = "6"> kph</font>
-      {/*}
 
-                        { this.state.winddir==='N'  ? <img src = "../../assets/wind/N.png" height = "45"/> :
-                          this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/wind/NW.png" height = "45"/> :
-                          this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/wind/NE.png" height = "45"/> :
-                          this.state.winddir==='E'  ? <img src = "../../assets/wind/E.png" height = "45"/> :
-                          this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/wind/SE.png" height = "45"/> :
-                          this.state.winddir==='S'  ? <img src = "../../assets/wind/S.png" height = "45"/> :
-                          this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/wind/SW.png" height = "45"/>
-                          : null
-                        }
-  */}
+                      {
+                      this.state.winddir==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "26" align= "middle" hspace="10"/> :
+                      this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "26" align= "middle" hspace="10"/> :
+                      this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "26" align= "middle" hspace="10"/> :
+                      this.state.winddir==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "26" align= "middle" hspace="10"/> :
+                      this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "26" align= "middle" hspace="10"/> :
+                      this.state.winddir==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "26" align= "middle" hspace="10"/> :
+                      this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "26" align= "middle" hspace="10"/>
+                      : <img src = "../../assets/icons/arrowW.png" height = "26" align= "middle" hspace="10"/>
+                      }
+
+
 
                     </div>
 
@@ -203,19 +203,16 @@ export default class Commute extends Component {
                     </div>
 
                     <div class = { style.wind }> { this.state.windkph_two }
-                        <font size = "6"> kph</font>
-        {/*}
-
-                        { this.state.winddir==='N'  ? <img src = "../../assets/wind/N.png" height = "45"/> :
-                          this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/wind/NW.png" height = "45"/> :
-                          this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/wind/NE.png" height = "45"/> :
-                          this.state.winddir==='E'  ? <img src = "../../assets/wind/E.png" height = "45"/> :
-                          this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/wind/SE.png" height = "45"/> :
-                          this.state.winddir==='S'  ? <img src = "../../assets/wind/S.png" height = "45"/> :
-                          this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/wind/SW.png" height = "45"/>
-                          : null
-                        }
-        */}
+                    {
+                    this.state.winddir_two==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "26" align= "middle" hspace="10"/> :
+                    this.state.winddir_two==='NW'|| this.state.winddir_two==='NNW' || this.state.winddir_two==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "26" align= "middle" hspace="10"/> :
+                    this.state.winddir_two==='NE' || this.state.winddir_two==='NNE' || this.state.winddir_two==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "26" align= "middle" hspace="10"/> :
+                    this.state.winddir_two==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "26" align= "middle" hspace="10"/> :
+                    this.state.winddir_two==='SE' || this.state.winddir_two==='SSE'|| this.state.winddir_two==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "26" align= "middle" hspace="10"/> :
+                    this.state.winddir_two==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "26" align= "middle" hspace="10"/> :
+                    this.state.winddir_two==='SW' || this.state.winddir_two==='SSW'|| this.state.winddir_two==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "26" align= "middle" hspace="10"/>
+                    : <img src = "../../assets/icons/arrowW.png" height = "26" align= "middle" hspace="10"/>
+                    }
 
                     </div>
 

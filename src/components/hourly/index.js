@@ -78,7 +78,16 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws1 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd1 }
+							<div class={ style.wdir }>  {
+								this.state.wd1==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+								this.state.wd1==='NW'|| this.state.wd1==='NNW' || this.state.wd1==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+								this.state.wd1==='NE' || this.state.wd1==='NNE' || this.state.wd1==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+								this.state.wd1==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+								this.state.wd1==='SE' || this.state.wd1==='SSE'|| this.state.wd1==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+								this.state.wd1==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+								this.state.wd1==='SW' || this.state.wd1==='SSW'|| this.state.wd1==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+								: <img src = "../../assets/icons/arrowW.png" height = "20" align="bottom"/>
+								}
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -116,7 +125,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws2 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd2 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd2==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd2==='NW'|| this.state.wd2==='NNW' || this.state.wd2==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd2==='NE' || this.state.wd2==='NNE' || this.state.wd2==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd2==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd2==='SE' || this.state.wd2==='SSE'|| this.state.wd2==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd2==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd2==='SW' || this.state.wd2==='SSW'|| this.state.wd2==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -154,7 +173,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws3 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd3 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd3==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd3==='NW'|| this.state.wd3==='NNW' || this.state.wd3==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd3==='NE' || this.state.wd3==='NNE' || this.state.wd3==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd3==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd3==='SE' || this.state.wd3==='SSE'|| this.state.wd3==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd3==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd3==='SW' || this.state.wd3==='SSW'|| this.state.wd3==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -192,7 +221,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws4 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd4 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd4==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd4==='NW'|| this.state.wd4==='NNW' || this.state.wd4==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd4==='NE' || this.state.wd4==='NNE' || this.state.wd4==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd4==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd4==='SE' || this.state.wd4==='SSE'|| this.state.wd4==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd4==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd4==='SW' || this.state.wd4==='SSW'|| this.state.wd4==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -230,7 +269,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws5 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd5 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd5==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd5==='NW'|| this.state.wd5==='NNW' || this.state.wd5==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd5==='NE' || this.state.wd5==='NNE' || this.state.wd5==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd5==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd5==='SE' || this.state.wd5==='SSE'|| this.state.wd5==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd5==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd5==='SW' || this.state.wd5==='SSW'|| this.state.wd5==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -268,7 +317,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws6 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd6 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd6==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd6==='NW'|| this.state.wd6==='NNW' || this.state.wd6==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd6==='NE' || this.state.wd6==='NNE' || this.state.w6==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd6==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd6==='SE' || this.state.wd6==='SSE'|| this.state.wd6==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd6==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd6==='SW' || this.state.wd6==='SSW'|| this.state.wd6==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -306,7 +365,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws7 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd7 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd7==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd7==='NW'|| this.state.wd7==='NNW' || this.state.wd7==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd7==='NE' || this.state.wd7==='NNE' || this.state.wd7==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd7==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd7==='SE' || this.state.wd7==='SSE'|| this.state.wd7==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd7==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd7==='SW' || this.state.wd7==='SSW'|| this.state.wd7==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>
@@ -344,7 +413,17 @@ export default class Hourly extends Component {
             <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws8 }
 							</div>
-							<div class={ style.wdir }> { this.state.wd8 }
+							<div class={ style.wdir }>
+							{
+							 this.state.wd8==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "20" /> :
+							 this.state.wd8==='NW'|| this.state.wd8==='NNW' || this.state.wd8==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "20" /> :
+							 this.state.wd8==='NE' || this.state.wd8==='NNE' || this.state.wd8==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "20" /> :
+							 this.state.wd8==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "20"/> :
+							 this.state.wd8==='SE' || this.state.wd8==='SSE'|| this.state.wd8==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "20" /> :
+							 this.state.wd8==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "20" /> :
+							 this.state.wd8==='SW' || this.state.wd8==='SSW'|| this.state.wd8==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "20" />
+							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
+							 }
 							</div>
 						</div>
 						<div class={ style.precip }>

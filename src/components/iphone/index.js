@@ -76,7 +76,7 @@ export default class Iphone extends Component {
 		})
 
 	}
-	
+
 	openNav = () =>  {
 	    document.getElementById("mySidenav").style.width = "250px";
 	}
@@ -140,7 +140,7 @@ closeNav = () => {
 							this.state.pollution > 150 ? <font color = 'red' size = "5">&#9670;</font>
 							: null
 						} POLLUTION
-				            <div><img src = "../../assets/icons/sunrise.png" height = "22" width = "25"/>{this.state.sunrise}:{this.state.sunrisemin} | {this.state.sunset}:{this.state.sunsetmin}
+				            <div><img src = "../../assets/icons/sunset.png" height = "14" width = "22"/>{this.state.sunrise}:{this.state.sunrisemin} | {this.state.sunset}:{this.state.sunsetmin}
 				            </div>
 				    </div>
 				</div>
@@ -168,20 +168,23 @@ closeNav = () => {
 						}
                     </div>
 
-                    <div class={ style.weatheritem }> { this.state.windkph }
-                        <font size = "6"> kph</font>
-			             {/*}
+                    <div class={ style.weatheritem }>  { this.state.windkph }
 
-							{ this.state.winddir==='N'  ? <img src = "../../assets/wind/N.png" height = "45"/> :
-							this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/wind/NW.png" height = "45"/> :
-							this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/wind/NE.png" height = "45"/> :
-							this.state.winddir==='E'  ? <img src = "../../assets/wind/E.png" height = "45"/> :
-							this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/wind/SE.png" height = "45"/> :
-							this.state.winddir==='S'  ? <img src = "../../assets/wind/S.png" height = "45"/> :
-							this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/wind/SW.png" height = "45"/>
-							: null
+			             {/*  <font size = "6"> kph</font> */}
+
+
+							{
+							this.state.winddir==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "26" align= "middle" hspace="10"/> :
+							this.state.winddir==='NW'|| this.state.winddir==='NNW' || this.state.winddir==='WNW'  ? <img src = "../../assets/icons/arrowNW.png" height = "26" align= "middle" hspace="10"/> :
+							this.state.winddir==='NE' || this.state.winddir==='NNE' || this.state.winddir==='ENE' ? <img src = "../../assets/icons/arrowNE.png" height = "26" align= "middle" hspace="10"/> :
+							this.state.winddir==='E'  ? <img src = "../../assets/icons/arrowE.png" height = "26" align= "middle" hspace="10"/> :
+							this.state.winddir==='SE' || this.state.winddir==='SSE'|| this.state.winddir==='ESE'?  <img src = "../../assets/icons/arrowSE.png" height = "26" align= "middle" hspace="10"/> :
+							this.state.winddir==='S'  ? <img src = "../../assets/icons/arrowS.png" height = "26" align= "middle" hspace="10"/> :
+							this.state.winddir==='SW' || this.state.winddir==='SSW'|| this.state.winddir==='WSW'?  <img src = "../../assets/icons/arrowSW.png" height = "26" align= "middle" hspace="10"/>
+							: <img src = "../../assets/icons/arrowW.png" height = "26" align= "middle" hspace="10"/>
 							}
-                         */}
+
+
 
                     </div>
 
