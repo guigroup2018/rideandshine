@@ -5,28 +5,22 @@ import style from './style';
 import style_iphone from '../button/style_iphone';
 // import jquery for API calls
 import $ from 'jquery';
-// import the Button component
-import Button from '../button';
 import { Link } from 'preact-router/match';
 
 export default class Commute extends Component {
 
 
-  // a constructor with initial set states
+  // constructor
   constructor(props){
     super(props);
-    // temperature state
-    this.state.temp = "";
-    // button display state
-    this.setState({ display: true });
+    // call the getTimes function to get commute times from Settings info
     this.getTimes();
+    // call the functions to fetch weather data from API.
     this.fetchWeatherDataOne();
-  //  this.fetchForecastDataOne();
     this.fetchWeatherDataTwo();
-//    this.fetchForecastDataTwo();
   }
 
-  // a call to fetch weather data via wunderground
+  // a call to fetch weather data via wunderground, for the outgoing commute time/place
   fetchWeatherDataOne = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
@@ -41,21 +35,7 @@ export default class Commute extends Component {
 
   }
 
-/*
-
-  fetchForecastDataOne = () => {
-    // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/forecast/q/autoip.json";
-    $.ajax({
-      url: url,
-      dataType: "jsonp",
-      success : this.parseResponseForecastOne,
-      error : function(req, err){ console.log('API call failed ' + err); }
-    })
-
-  }
-*/
-
+  // a call to fetch weather data for the returning commute time/place
   fetchWeatherDataTwo = () => {
     // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
@@ -70,29 +50,15 @@ export default class Commute extends Component {
 
   }
 
-
-/*
-  fetchForecastDataTwo = () => {
-    // API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-    var url = "http://api.wunderground.com/api/f6ba841d9cd4c902/forecast/q/Hungary/Budapest.json";
-    $.ajax({
-      url: url,
-      dataType: "jsonp",
-      success : this.parseResponseForecastTwo,
-      error : function(req, err){ console.log('API call failed ' + err); }
-    })
-
-  }
-  */
-
   // the main render method for the iphone component
   render() {
-    // check if temperature data is fetched, if so add the sign styling to the page
-    //const tempStyles = this.state.temp ? `${style.temperature} ${style.filled}` : style.temperature;
-      // display all weather data
+      
     return (
+
+       // Main container
       <div class={ style.container }>
 
+        {/* Commute header */}
         <div class={ style.header }>
             <div class= { style.back }>
               <Link href="/"><button id="back"><img src = "../../assets/icons/back.png" height="20"/></button></Link>
@@ -100,18 +66,19 @@ export default class Commute extends Component {
             COMMUTE
         </div>
 
+        {/* Outgoing commute info */}
         <div class={ style.info_container }>
+                    {/* Outgoing commute location and time */}
                     <div class={ style.city }>{ this.state.locate }
                     </div>
                     <div class={ style.saved_time}>{ this.state.day_one } { this.state.time_one }
                     </div>
 
+            <div class = { style.weatherinfo }>
 
-
-
-                <div class = { style.weatherinfo }>
-                    <div class= { style.weathericon }>
-                     {
+                {/* Outgoing commute conditions */}
+                <div class= { style.weathericon }>
+                    {
                       this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "160" align = "middle" /> :
                       this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "160" align = "middle" /> :
                       this.state.cond==='Cloudy' ? <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" /> :
@@ -128,18 +95,20 @@ export default class Commute extends Component {
                       this.state.cond==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" />
                       : <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" />
                       }
-                    </div>
+                </div>
 
+                {/* Outgoing commute temperature */}
+                <div class = { style.temperature }> { this.state.temp }
+                    &deg;<font size = "4"><b>C</b></font>
+                </div>
 
-                    <div class = { style.temperature }> { this.state.temp }
-                        &deg;<font size = "4"><b>C</b></font>
+                {/* Outgoing commute chance of rain */}
+                <div class = { style.precip }>{ this.state.poperc }
+                    <img src = "../../assets/icons/chancerain.png" height = "60" align = "top"/>
+                </div>
 
-                    </div>
-
-                    <div class = { style.precip }>{ this.state.poperc }<img src = "../../assets/icons/chancerain.png" height = "60" align = "top"/>
-                    </div>
-
-                    <div class = { style.wind }> { this.state.windkph }
+                {/* Outgoing commute wind info */}
+                <div class = { style.wind }> { this.state.windkph }
 
                       {
                       this.state.winddir==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "26" align= "middle" hspace="10"/> :
@@ -152,56 +121,52 @@ export default class Commute extends Component {
                       : <img src = "../../assets/icons/arrowW.png" height = "26" align= "middle" hspace="10"/>
                       }
 
-
-
-                    </div>
-
-
-
-
-
                 </div>
+            </div>
         </div>
 
+        {/* Return commute info */}
         <div class={ style.info_container }>
+
+                    {/* Return commute place and time info */}
                     <div class={ style.city }>{ this.state.locate_two }
                     </div>
                     <div class={ style.saved_time}>{ this.state.day_two } { this.state.time_two }
                     </div>
 
 
-
-
-                <div class = { style.weatherinfo }>
-                    <div class= { style.weathericon }>
-                     {
-                      this.state.cond_two==='Clear' ? <img src = "../../assets/icons/sun.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Rain' ? <img src = "../../assets/icons/rain.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Cloudy' ? <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Overcast' ? <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Snow' ? <img src = "../../assets/icons/snow.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Mostly Sunny' ? <img src = "../../assets/icons/mostlysunny.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Partly Sunny' ? <img src = "../../assets/icons/partlysunny.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Hazy' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Partly Cloudy' ? <img src = "../../assets/icons/partlycloudy.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Mostly Cloudy' ? <img src = "../../assets/icons/mostlycloudy.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Thunderstorm' ? <img src = "../../assets/icons/tstorms.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "160" align = "middle" /> :
-                      this.state.cond_two==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" />
-                      : <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" />
-                      }
+                    <div class = { style.weatherinfo }>
+                        {/* Return commute conditions */}
+                        <div class= { style.weathericon }>
+                        {
+                        this.state.cond_two==='Clear' ? <img src = "../../assets/icons/sun.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Rain' ? <img src = "../../assets/icons/rain.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Cloudy' ? <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Overcast' ? <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Snow' ? <img src = "../../assets/icons/snow.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Mostly Sunny' ? <img src = "../../assets/icons/mostlysunny.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Partly Sunny' ? <img src = "../../assets/icons/partlysunny.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Hazy' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Partly Cloudy' ? <img src = "../../assets/icons/partlycloudy.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Mostly Cloudy' ? <img src = "../../assets/icons/mostlycloudy.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Thunderstorm' ? <img src = "../../assets/icons/tstorms.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Sleet' ? <img src = "../../assets/icons/sleet.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Flurries' ? <img src = "../../assets/icons/flurries.png" height = "160" align = "middle" /> :
+                        this.state.cond_two==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "160" align = "middle" />
+                        : <img src = "../../assets/icons/cloud.png" height = "160" align = "middle" />
+                        }
                     </div>
 
-
+                    {/* Return commute temperature */}
                     <div class = { style.temperature }> { this.state.temp_two }
                         &deg;<font size = "4"><b>C</b></font>
-
                     </div>
 
+                    {/* Return commute chance of rain */}
                     <div class = { style.precip }>{ this.state.poperc_two }<img src = "../../assets/icons/chancerain.png" height = "60" align = "top"/>
                     </div>
 
+                    {/* Return commute wind info */}
                     <div class = { style.wind }> { this.state.windkph_two }
                     {
                     this.state.winddir_two==='N'  ? <img src = "../../assets/icons/arrowN.png" height = "26" align= "middle" hspace="10"/> :
@@ -215,21 +180,16 @@ export default class Commute extends Component {
                     }
 
                     </div>
-
-
-
-
-
-                </div>
+            </div>
+        
         </div>
 
-
-      </div>
-
+    </div>
 
     );
   }
 
+  //Parse respones from wunderground call for outgoing commute weather
   parseResponseWeatherOne = (parsed_json) => {
     var location = parsed_json['current_observation']['display_location']['city'];
     var temp_c = parsed_json['current_observation']['temp_c'];
@@ -240,12 +200,11 @@ export default class Commute extends Component {
     var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
 
-    // set states for fields so they could be rendered later on
+    // Used parsed respones to set states
     this.setState({
       locate: location,
       temp: temp_c,
       cond : conditions,
-    //	cond: 'clear',
       windkph : wind_kph,
       lastupdate: last_update,
       winddir: wind_dir,
@@ -255,17 +214,7 @@ export default class Commute extends Component {
     });
   }
 
-
-/*
-  parseResponseForecastOne = (parsed_json) => {
-      var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
-
-      this.setState({
-        poperc: poperc
-    });
-
-  }
-*/
+ //Parse respones from wunderground call for return commute weather
   parseResponseWeatherTwo = (parsed_json) => {
     var location = parsed_json['current_observation']['display_location']['city'];
     var temp_c = parsed_json['current_observation']['temp_c'];
@@ -275,32 +224,19 @@ export default class Commute extends Component {
     var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
 
 
-    // set states for fields so they could be rendered later on
+    // Used parsed responses to set states
     this.setState({
       locate_two: location,
       temp_two: temp_c,
       cond_two : conditions,
-    //	cond: 'clear',
       windkph_two : wind_kph,
       winddir_two: wind_dir,
       poperc_two: poperc
-
-
     });
   }
 
-
-/*
-  parseResponseForecastTwo = (parsed_json) => {
-      var poperc = parsed_json['forecast']['txt_forecast']['forecastday'][0]['pop'];
-
-      this.setState({
-        poperc_two: poperc
-    });
-
-  }
-*/
-  getTimes = () => {
+//get commute times and places from Settings info
+getTimes = () => {
       var time_one = '9:00AM';
       var time_two = '6:00PM';
       var day_one = 'TODAY';
@@ -314,7 +250,5 @@ export default class Commute extends Component {
       });
 
   }
-
-
 
 }

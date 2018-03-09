@@ -5,24 +5,20 @@ import style from './style';
 import style_iphone from '../button/style_iphone';
 // import jquery for API calls
 import $ from 'jquery';
-// import the Button component
-import Button from '../button';
 import { Link } from 'preact-router/match';
 
 export default class Hourly extends Component {
 //var Iphone = React.createClass({
 
-	// a constructor with initial set states
+	// constructor which calls the methods to get weather data
 	constructor(props){
 		super(props);
-		//this.setState({ display: true });
 		this.fetchWeatherData() ;
 	}
 
 	// a call to fetch weather data via wunderground
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-
 		var url = "http://api.wunderground.com/api/a0f5a50344818e43/hourly/q/autoip.json";
 
 		$.ajax({
@@ -33,17 +29,21 @@ export default class Hourly extends Component {
 		})
 
 	}
-//helo you
-	// the main render method for the iphone component
+    
+	// the main render method
 	render() {
-        // display all weather data
+
 		return (
+            //Main container
 			<div class={ style.container }>
 
+                {/* Ride&Shine logo container */}
 				<div class={ style.logo_container }>
 				    <img src="../../assets/images/logo.png" height="100"/>
-        </div>
-        <div class= { style_iphone.container }>
+                </div>
+            
+                {/* Navigation bar container SETTINGS TODAY TOMORROW COMMUTE */}
+                <div class= { style_iphone.container }>
 				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
 				    <Link href="/"><button id="today">TODAY</button></Link>
 				    <Link href="/tomorrow"><button id="tomorrow">TOMORROW</button></Link>
@@ -51,10 +51,14 @@ export default class Hourly extends Component {
 				    </div>
 				</div>
 
+                {/* Hourly info display */}
 				<div class={ style.row_light }>
-            <div class={ style.time }>{ this.state.hour1 }:00
-            </div>
-            <div class={ style.conditions}>
+
+                    {/* Hour 1 */}
+                    <div class={ style.time }>{ this.state.hour1 }:00
+                    </div>
+
+                    <div class={ style.conditions}>
 						{
 			 			 this.state.cond1==='Clear' ? <img src = "../../assets/icons/sun.png" height = "40" align = "middle" /> :
 						 this.state.cond1==='Rain' ? <img src = "../../assets/icons/rain.png" height = "40" align = "middle" /> :
@@ -71,11 +75,12 @@ export default class Hourly extends Component {
 						 this.state.cond1==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "40" align = "middle" />
 						 : <img src = "../../assets/icons/cloud.png" height = "40" align = "middle" />
 						 }
-            </div>
-						<div class={ style.weatheritem }> { this.state.temp1 }
+                    </div>
+
+				    <div class={ style.weatheritem }> { this.state.temp1 }
 								&deg;<font size = "3"><b>C</b></font>
-						</div>
-            <div class={ style.wind} >
+				    </div>
+                    <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws1 }
 							</div>
 							<div class={ style.wdir }>  {
@@ -95,13 +100,14 @@ export default class Hourly extends Component {
 							</div>
 							<div class={ style.drop }><img src = "../../assets/icons/chancerain.png" height = "30"/>
 							</div>
-						</div>
+				        </div>
 				</div>
 
+                {/* Hour 2 */}
 				<div class={ style.row_dark }>
-            <div class={ style.time }>{ this.state.hour2 }:00
-            </div>
-            <div class={ style.conditions}>
+                    <div class={ style.time }>{ this.state.hour2 }:00
+                    </div>
+                    <div class={ style.conditions}>
 						{
 			 			 this.state.cond2==='Clear' ? <img src = "../../assets/icons/sun.png" height = "40" align = "middle" /> :
 						 this.state.cond2==='Rain' ? <img src = "../../assets/icons/rain.png" height = "40" align = "middle" /> :
@@ -118,11 +124,11 @@ export default class Hourly extends Component {
 						 this.state.cond2==='Fog' ? <img src = "../../assets/icons/hazy.png" height = "40" align = "middle" />
 						 : <img src = "../../assets/icons/cloud.png" height = "40" align = "middle" />
 						 }
-            </div>
-						<div class={ style.weatheritem }> { this.state.temp2 }
+                    </div>
+				    <div class={ style.weatheritem }> { this.state.temp2 }
 								&deg;<font size = "3"><b>C</b></font>
-						</div>
-            <div class={ style.wind} >
+				    </div>
+                    <div class={ style.wind} >
 							<div class={ style.wspeed }> { this.state.ws2 }
 							</div>
 							<div class={ style.wdir }>
@@ -137,16 +143,17 @@ export default class Hourly extends Component {
 							 : <img src = "../../assets/icons/arrowW.png" height = "20"/>
 							 }
 							</div>
-						</div>
-						<div class={ style.precip }>
-							<div class={ style.pop }> { this.state.pop2 }
-							</div>
-							<div class={ style.drop }><img src = "../../assets/icons/chancerain.png" height = "30"/>
-							</div>
-						</div>
+				    </div>
+				    <div class={ style.precip }>
+				        <div class={ style.pop }> { this.state.pop2 }
+				        </div>
+				        <div class={ style.drop }><img src = "../../assets/icons/chancerain.png" height = "30"/>
+				        </div>
+				    </div>
 				</div>
-
-				<div class={ style.row_light }>
+            
+        {/* Hour 3 */}
+        <div class={ style.row_light }>
             <div class={ style.time }>{ this.state.hour3 }:00
             </div>
             <div class={ style.conditions}>
@@ -194,10 +201,11 @@ export default class Hourly extends Component {
 						</div>
 				</div>
 
-				<div class={ style.row_dark }>
-            <div class={ style.time }>{ this.state.hour4 }:00
-            </div>
-            <div class={ style.conditions}>
+            {/* Hour 4 */}
+            <div class={ style.row_dark }>
+                <div class={ style.time }>{ this.state.hour4 }:00
+                </div>
+                <div class={ style.conditions}>
 						{
 			 			 this.state.cond4==='Clear' ? <img src = "../../assets/icons/sun.png" height = "40" align = "middle" /> :
 						 this.state.cond4==='Rain' ? <img src = "../../assets/icons/rain.png" height = "40" align = "middle" /> :
@@ -242,6 +250,7 @@ export default class Hourly extends Component {
 						</div>
 				</div>
 
+            {/* Hour 5 */}
 				<div class={ style.row_light }>
             <div class={ style.time }>{ this.state.hour5 }:00
             </div>
@@ -290,6 +299,7 @@ export default class Hourly extends Component {
 						</div>
 				</div>
 
+            {/* Hour 6 */}
 				<div class={ style.row_dark }>
             <div class={ style.time }>{ this.state.hour6 }:00
             </div>
@@ -338,6 +348,7 @@ export default class Hourly extends Component {
 						</div>
 				</div>
 
+                {/* Hour 7 */}
 				<div class={ style.row_light }>
             <div class={ style.time }>{ this.state.hour7 }:00
             </div>
@@ -440,6 +451,7 @@ export default class Hourly extends Component {
 		);
 	}
 
+    //parse responses for Hourly data calls
 	parseResponseHourly = (parsed_json) => {
 		var hour1 = parsed_json['hourly_forecast'][0]['FCTTIME']['hour_padded'];
 		var hour2 = parsed_json['hourly_forecast'][1]['FCTTIME']['hour_padded'];
@@ -491,7 +503,7 @@ export default class Hourly extends Component {
 		var pop8 = parsed_json['hourly_forecast'][7]['pop'];
 
 
-		// set states for fields so they could be rendered later on
+		// use parsed respones to set states
 		this.setState({
 			hour1: hour1,
 			hour2: hour2,

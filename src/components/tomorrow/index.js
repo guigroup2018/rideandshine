@@ -5,8 +5,6 @@ import style from './style';
 import style_iphone from '../button/style_iphone';
 // import jquery for API calls
 import $ from 'jquery';
-// import the Button component
-import Button from '../button';
 import { Link } from 'preact-router/match';
 
 export default class Tomorrow extends Component {
@@ -15,12 +13,11 @@ export default class Tomorrow extends Component {
 	// a constructor with initial set states
 	constructor(props){
 		super(props);
+        //calls function to get weather data
 		this.fetchWeatherData() ;
-		//this.fetchLocationData();
-
 	}
 
-	// a call to fetch weather data via wunderground
+	// function to fetch weather data for tomorrow via wunderground
 	fetchWeatherData = () => {
 		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
 
@@ -33,52 +30,51 @@ export default class Tomorrow extends Component {
 		})
 
 	}
-/*
-	fetchLocationData = () => {
-		// API URL with a structure of : ttp://api.wunderground.com/api/key/feature/q/country-code/city.json
-		var url = "http://api.wunderground.com/api/84d1dff8599a94b2/conditions/q/autoip.json";
-		$.ajax({
-			url: url,
-			dataType: "jsonp",
-			success : this.parseResponseThree,
-			error : function(req, err){ console.log('API call failed ' + err); }
-		})
-
-	}
-*/
 
 	render() {
 
 		return (
+            /*  Main container */
 			<div class={ style.container }>
 
+                {/*  Ride&Shine logo container */} 
 				<div class={ style.logo_container }>
 				    <img src="../../assets/images/logo.png" height="100"/>
                 </div>
 
-            <div class= { style_iphone.container }>
-				<button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
-				<Link href="/"><button id="today">TODAY</button></Link>
-
-				<Link href="/tomorrow"><button id="tomorrow"><span style="background-color:#ffcd60;"><font color='#6dae9d'><u>TOMORROW</u></font></span></button></Link>
-				<div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
-				</div>
-            </div>
-
-            <div class={ style.bike_container }> {/* Container for our GIF */}
-                <div class={ style.city }>{ this.state.location }
+                {/*  Navigation bar container: SETTINGS TODAY TOMORROW COMMUTE  */}    
+                <div class= { style_iphone.container }>
+                    {/*  Settings button  */}
+				    <button id="settings"><img src = "../../assets/images/settings.png" height = "22"/></button>
+                    {/*  TODAY button  */}
+				    <Link href="/"><button id="today">TODAY</button></Link>
+                    {/*  TOMORROW button  */}
+				    <Link href="/tomorrow"><button id="tomorrow"><span style="background-color:#ffcd60;"><font color='#6dae9d'><u>TOMORROW</u></font></span></button></Link>
+                    {/*  COMMUTE button  */}
+				    <div class = { style_iphone.commute }><Link href="/commute"><button id="commute"><img src = "../../assets/images/commute.png" height = "22"/></button></Link>
+				    </div>
                 </div>
-                <div class={ style.refresh}>{this.state.tomorrowday}
+
+                {/*  Bike animation container  */} 
+                <div class={ style.bike_container }>
+                    {/*  Display current city  */} 
+                    <div class={ style.city }>{ this.state.location }
+                    </div>
+                    {/*  Display last refresh */} 
+                    <div class={ style.refresh}>{this.state.tomorrowday}
+                    </div>
                 </div>
-            </div>
 
-            <div class ={ style.gradient }>
-            </div>
+                {/* Gradient container  */} 
+                <div class ={ style.gradient }>
+                </div>
 
-            <div class = { style.weatherinfo }>
-                <div class= { style.weatheritem}>
-
-            	   {
+                {/*  Container for the 2x2 grid displaying weather information. */}
+                <div class = { style.weatherinfo }>
+            
+                  {/*  TOP LEFT: Display conditions for tomorrow icon via ternary condition */}
+                  <div class= { style.weatheritem}>
+            	    {
 					this.state.cond==='Clear' ? <img src = "../../assets/icons/sun.png" height = "100" align = "middle" /> :
 					this.state.cond==='Rain' ? <img src = "../../assets/icons/rain.png" height = "100" align = "middle" /> :
 					this.state.cond==='Cloudy' ? <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" /> :
@@ -95,7 +91,8 @@ export default class Tomorrow extends Component {
 					: <img src = "../../assets/icons/cloud.png" height = "100" align = "middle" />
 				    }
                 </div>
-
+                
+                 {/*  TOP RIGHT: Display tomorrows wind information */}
                 <div class={ style.weatheritem }> { this.state.windspeed }
 
 								{
@@ -110,15 +107,19 @@ export default class Tomorrow extends Component {
 								}
                 </div>
 
+                {/*  BOTTOM LEFT: Display tomorrows temperature information */}
                 <div class={ style.weatheritem }>
                     <div class={ style.temperatureinfo }>
                         <div class={ style.weatheritem }><font size="6">Hi: </font>
-                        { this.state.tempmax } <font size="4">&deg; C</font></div>
+                        { this.state.tempmax } <font size="4">&deg; C</font>
+                        </div>
                         <div class={ style.weatheritem }><font size="6">Low: </font>
-                        { this.state.tempmin } <font size="4">&deg; C</font></div>
+                        { this.state.tempmin } <font size="4">&deg; C</font>
+                        </div>
                     </div>
                 </div>
 
+                {/*  BOTTOM RIGHT: Display tomorrows chance of rain */}
 				<div class= { style.weatheritem}>{ this.state.rainprob }<img src = "../../assets/icons/chancerain.png" height = "60" align = "middle"/>
                 </div>
 
@@ -130,6 +131,7 @@ export default class Tomorrow extends Component {
 		);
 	}
 
+    // Parse responses from weather API call. The 1 signifies the tomorrow period.
 	parseResponse = (parsed_json) => {
 		// var location = parsed_json['current_observation']['display_location']['city'];
 		var conditions = parsed_json['forecast']['simpleforecast']['forecastday'][1]['conditions'];
@@ -139,9 +141,9 @@ export default class Tomorrow extends Component {
         var temp_c_min = parsed_json['forecast']['simpleforecast']['forecastday'][1]['low']['celsius'];
         var rainprob = parsed_json['forecast']['txt_forecast']['forecastday'][1]['pop'];
 	    var day = parsed_json['forecast']['simpleforecast']['forecastday'][1]['date']['weekday'];
-			var location = parsed_json['current_observation']['display_location']['city'];
+        var location = parsed_json['current_observation']['display_location']['city'];
 
-		// set states for fields so they could be rendered later on
+		// Use the parsed responses to set states
 		this.setState({
             cond : conditions,
             windspeed : wind_kph,
@@ -154,15 +156,5 @@ export default class Tomorrow extends Component {
 
 		});
 	}
-
-/*
-	parseResponseThree = (parsed_json) => {
-			var location = parsed_json['current_observation']['display_location']['city'];
-
-			this.setState({
-				location: location
-		});
-	}
-*/
 
 }
