@@ -137,17 +137,17 @@
 
 
 .sidenav {
-	  width: 0;
-    height: 100%;
-  	position:absolute;
-    top: 0;
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+  	position:absolute;  /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
     left: 0;
-    background-color: #ffcc5c;
-    overflow-x: hidden;
-    padding-top: 60px;
+    background-color: #ffcc5c; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 112px;
     transition: 0.5s;
 		margin: 0px;
-		z-index: 1;
 }
 
 .sidenav .closebtn {
@@ -160,8 +160,23 @@
 .sideBtns{
 	background-color:#ffeead;
 	color: #ff6f69;
-	height: 7%;
+	height: 6%;
 	font-size: 24px;
 	align-self: center;
 	padding-right:25%;
+	text-align: justify;
+	padding-left: 10px;
+
+}
+
+.sideSettingsBtn{
+	background-color:#ffeead;
+	color: #ff6f69;
+	height: 6%;
+	font-size: 24px;
+	align-self: center;
+	padding-right:25%;
+	text-align: justify;
+	margin-top: 50px;
+	padding-left: 10px;
 }
