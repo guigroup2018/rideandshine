@@ -69,15 +69,29 @@ export default class Iphone extends Component {
                 {/*  Settings sidebar container */}      
 			     <div class= { style_iphone.container} >
             
-                    <div  id ="mySidenav" class= { style.sidenav }>
-			             <button className="settings" onclick= {this.closeNav} ><img src = "../../assets/images/settings.png" height = "22"/></button>
+				    <div  id ="mySidenav" class= { style.sidenav }>
+						<div class ={style.sideBtns} onclick= {this.closeNav}>
+						<p>EAST LONDON <img src="../../assets/icons/tick.png" height = "20" /></p>
+						</div>
 
-			             <div class ={style.sideBtns} onclick= {this.closeNav}>
-			                 <p>Settings</p>
-			             </div>
-			         </div>
-			     </div>
+						<div class ={style.sideBtns} onclick= {this.closeNav}>
+						<p>CANARY WHARF</p>
+						</div>
 
+						<div class ={style.sideBtns} onclick= {this.closeNav}>
+						<p>NEW YORK</p>
+						</div>
+
+						<div class ={style.sideBtns} onclick= {this.closeNav}>
+						<p>AMSTERDAM</p>
+						</div>
+
+
+						<div class ={style.sideSettingsBtn} onclick= {this.closeNav}>
+						<p>SETTINGS <img src="../../assets/icons/settings.png" height = "20" /></p>
+						</div>
+			 		</div>
+				</div>
                 {/*  Ride&Shine logo container */} 
 				<div class={ style.logo_container }>
 				    <img src="../../assets/images/logo.png" height="100"/>
